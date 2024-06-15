@@ -7,7 +7,7 @@ const Selector = () => {
   return (
     <>
       <Box mt={5}>
-        <Typography variant="h4" sx={{textAlign: "center"}}>Série de Hennon</Typography>
+        <Typography variant="h4" sx={{textAlign: "center"}}>Série de Henon</Typography>
       </Box>
       <Container sx={{ marginTop: "10%" }}>
         <Grid container rowGap={3.75}>

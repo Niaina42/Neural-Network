@@ -1,5 +1,10 @@
 {
-  "name": "insertion",
+  "name": "hennon-network",
+  "author": {
+    "name": "Niaina Christopher",
+    "email": "niainachristopher4@gmail.com"
+  },
+  "description": "Artificial Neural Network Project with Electron JS and React (Hennon series)",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,12 +12,14 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.20",
+    "@mui/x-charts": "^7.7.0",
     "@mui/x-data-grid": "^7.7.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
+    "mathjs": "^13.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
@@ -49,6 +56,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "build": {
+    "appId": "com.henonproject.id",
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "files": [
+      "build/**/*"
+    ],
+    "extraResources": []
   },
   "devDependencies": {
     "electron": "^31.0.1",

@@ -15,11 +15,11 @@ export const data = [
   {
     id: 2,
     icon: Range,
-    title: 'Architechture',
+    title: 'Architecture',
     color: 'error.light',
     value: 157,
     max: 300,
-    slug: "/function"
+    slug: "/architecture"
   },
   {
     id: 3,

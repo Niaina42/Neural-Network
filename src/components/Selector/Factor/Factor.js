@@ -8,12 +8,11 @@ const Factor = ({ factor }) => {
   const navigation = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
 
-  const { icon: Icon, color, title, value, max = 100 } = factor;
+  const { icon: Icon, color, title, slug, max = 100 } = factor;
 
   const [paletteOption, simplePaletteColorOption] = color.split('.')
 
   const factorColor = theme.palette[paletteOption][simplePaletteColorOption];
-  const doughnutChartData = { color: factorColor, value, max };
 
   return (
     <Paper
@@ -31,7 +30,7 @@ const Factor = ({ factor }) => {
       elevation={0}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => navigation("/function")}
+      onClick={() => navigation(slug)}
     >
       <Stack alignItems="center" rowGap={3.75} sx={{ py: 2.5, height: 1 }}>
         <Stack alignItems="center" rowGap={1.25}>
@@ -50,12 +49,6 @@ const Factor = ({ factor }) => {
             <Icon sx={[isHovered ? { color: 'grey.100' } : { color: factorColor }]} />
           </Stack>
         </Stack>
-
-        {/* <FactorChart
-          data={doughnutChartData}
-          isHovered={isHovered}
-          style={{ height: 112, width: 112 }}
-        /> */}
       </Stack>
     </Paper>
   );
