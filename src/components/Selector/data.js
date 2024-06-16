@@ -27,7 +27,7 @@ export const data = [
     title: 'Apprentissage',
     color: 'secondary.main',
     value: 9,
-    slug: "/function"
+    slug: "/training"
   },
   {
     id: 4,

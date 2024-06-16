@@ -1,7 +1,7 @@
 import { Box, Button, Grid, Paper, Stack, Typography } from "@mui/material";
 import { DataGrid, useGridApiRef } from "@mui/x-data-grid";
 
-const Table = ({ columns, rows }) => {
+const Table = ({ columns, rows = [], title = null }) => {
   const apiRef = useGridApiRef();
 
   return (
@@ -12,6 +12,11 @@ const Table = ({ columns, rows }) => {
       })}
       elevation={0}
     >
+      {title && (
+        <Typography variant="body1" mt={2} mb={2}>
+          {title}
+        </Typography>
+      )}
       <Box
         sx={{
           height: 530,

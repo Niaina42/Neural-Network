@@ -4,7 +4,7 @@
     "name": "Niaina Christopher",
     "email": "niainachristopher4@gmail.com"
   },
-  "description": "Artificial Neural Network Project with Electron JS and React (Hennon series)",
+  "description": "Artificial Neural Network Project with Electron JS and React (Henon series)",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -37,7 +37,8 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
     "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/main.js",
-    "electron:start": "wait-on tcp:3000 && electron ."
+    "electron:start": "wait-on tcp:3000 && electron .",
+    "electron:build:win": "npm run build && electron-builder -c.extraMetadata.main=build/main.js --win"
   },
   "eslintConfig": {
     "extends": [
@@ -69,7 +70,8 @@
       ]
     },
     "files": [
-      "build/**/*"
+      "dist/**/*",
+      "package.json"
     ],
     "extraResources": []
   },

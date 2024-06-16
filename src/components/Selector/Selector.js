@@ -3,19 +3,21 @@ import React, { useState } from "react";
 import Factor from "./Factor/Factor";
 import { data } from "./data";
 
-const Selector = () => {
-  return (
+const Selector = ({ archLoading }) => {
+  return !archLoading ? (
     <>
       <Box mt={5}>
-        <Typography variant="h4" sx={{textAlign: "center"}}>Série de Henon</Typography>
+        <Typography variant="h4" sx={{ textAlign: "center" }}>
+          Série de Henon
+        </Typography>
       </Box>
       <Container sx={{ marginTop: "10%" }}>
         <Grid container rowGap={3.75}>
           <Grid item xs={12}>
             <Grid container spacing={3.75}>
-              {data.map((factor) => {
+              {data.map((factor, idx) => {
                 return (
-                  <Grid item xs={12} sm={6} lg={4}>
+                  <Grid key={idx} item xs={12} sm={6} lg={4}>
                     <Factor factor={factor} />
                   </Grid>
                 );
@@ -24,6 +26,14 @@ const Selector = () => {
           </Grid>
         </Grid>
       </Container>
+    </>
+  ) : (
+    <>
+      <Box mt={5}>
+        <Typography variant="h4" sx={{ textAlign: "center" }}>
+          Chargement...
+        </Typography>
+      </Box>
     </>
   );
 };
