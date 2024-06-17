@@ -17,6 +17,9 @@ const Factor = ({ factor }) => {
   return (
     <Paper
       sx={{
+        background: "#120e21",
+        border: "1px solid #fff",
+        color: "#fff",
         transition: 'background-color 0.8s',
         '&:hover': {
           bgcolor: 'secondary.main',

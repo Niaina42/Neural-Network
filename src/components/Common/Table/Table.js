@@ -5,15 +5,9 @@ const Table = ({ columns, rows = [], title = null }) => {
   const apiRef = useGridApiRef();
 
   return (
-    <Paper
-      sx={(theme) => ({
-        p: theme.spacing(2, 2.5),
-        width: 1,
-      })}
-      elevation={0}
-    >
+    <Box>
       {title && (
-        <Typography variant="body1" mt={2} mb={2}>
+        <Typography color={"#fff"} variant="body1" mt={2} mb={2}>
           {title}
         </Typography>
       )}
@@ -25,6 +19,17 @@ const Table = ({ columns, rows = [], title = null }) => {
         }}
       >
         <DataGrid
+          sx={{
+            color: "#FFF",
+            background: "#120e21",
+            border: "1px solid #fff",
+            "& .MuiDataGrid-main .css-yrdy0g-MuiDataGrid-columnHeaderRow":{
+              background:"#120e21"
+            },
+            "& .css-rtrcn9-MuiTablePagination-root":{
+              color:"#fff"
+            },
+          }}
           apiRef={apiRef}
           columns={columns}
           rows={rows}
@@ -37,7 +42,7 @@ const Table = ({ columns, rows = [], title = null }) => {
           }}
         />
       </Box>
-    </Paper>
+    </Box>
   );
 };
 

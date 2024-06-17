@@ -1,6 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { ScatterChart } from "@mui/x-charts/ScatterChart";
 
+const chartStyle = {
+  //change left yAxis label styles
+  "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel":{
+    fill:"#FFFFFF"
+  },
+  // change bottom label styles
+  "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel":{
+      fill:"#FFFFFF"
+   },
+    // bottomAxis Line Styles
+   "& .MuiChartsAxis-bottom .MuiChartsAxis-line":{
+    stroke:"#FFFFFF",
+   },
+   // leftAxis Line Styles
+   "& .MuiChartsAxis-left .MuiChartsAxis-line":{
+    stroke:"#FFFFFF",
+   },
+   "& .MuiChartsAxis-left .MuiChartsAxis-tick":{
+    stroke:"#FFFFFF",
+   },
+   "& .MuiChartsAxis-bottom .MuiChartsAxis-tick":{
+    stroke:"#FFFFFF",
+   },
+}
+
 const Statistics = ({ architecture }) => {
   const [data, setData] = useState([]);
 
@@ -19,13 +44,14 @@ const Statistics = ({ architecture }) => {
 
   return (
     <ScatterChart
-      width={800}
+      width={550}
       height={500}
       series={[
         {
           data: data.map((v) => ({ x: v.x, y: v.y, id: v.id })),
         },
       ]}
+      sx={chartStyle}
     />
   );
 };

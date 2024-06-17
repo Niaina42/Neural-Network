@@ -11,6 +11,7 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import Statistics from "./Statstics/Statistics";
+import StyledPaper from "../Common/StyledPaper/StyledPaper";
 
 const Function = ({ architecture }) => {
   const navigate = useNavigate();
@@ -26,34 +27,34 @@ const Function = ({ architecture }) => {
             id: idx,
             yn: idx,
             fyn: x.toFixed(6),
-          }) 
+          });
           break;
         default:
           parsedValue.push({
             id: idx,
             xn: idx,
             fxn: x.toFixed(6),
-          }) 
+          });
           break;
       }
-    })
-    setter(parsedValue)
-  }
+    });
+    setter(parsedValue);
+  };
 
   useEffect(() => {
     const values = architecture.generateValues(500);
 
-    if(values) {
-      insertValues(values[0], setXValues, "x")
-      insertValues(values[1], setYValues, "y")
+    if (values) {
+      insertValues(values[0], setXValues, "x");
+      insertValues(values[1], setYValues, "y");
     }
-  }, [])
+  }, []);
 
   return (
     <Container>
       <Box mt={5} sx={{ display: "flex", alignItems: "center" }}>
         <IconButton onClick={() => navigate(-1)}>
-          <ArrowBackIcon />
+          <ArrowBackIcon sx={{ color: "#fff" }} />
         </IconButton>
 
         <Typography variant="h5" mt={2} mb={2}>
@@ -61,59 +62,55 @@ const Function = ({ architecture }) => {
         </Typography>
       </Box>
 
-      <Grid container mb={2}>
+      <Grid container mb={5}>
         <Grid item xs={12} md={6}>
-          <Table
-            columns={[
-              {
-                field: "xn",
-                headerName: "Xn",
-                flex: 1.5,
-                minWidth: 150,
-              },
-              {
-                field: "fxn",
-                headerName: "F(Xn)",
-                flex: 1,
-                minWidth: 200,
-                sortable: false,
-              },
-            ]}
-
-            rows={XValues}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Table
-            columns={[
-              {
-                field: "yn",
-                headerName: "Xn",
-                flex: 1.5,
-                minWidth: 150,
-              },
-              {
-                field: "fyn",
-                headerName: "F(Yn)",
-                flex: 1,
-                minWidth: 200,
-                sortable: false,
-              },
-            ]}
-            rows={YValues}
-          />
-        </Grid>
-      </Grid>
-      <Grid container mb={2}>
-        <Grid item xs={12} md={12}>
-          <Paper
-            sx={{ display: "flex", justifyContent: "center", width: "100%" }}
-            elevation={0}
-          >
+          <StyledPaper>
             <Box>
               <Statistics architecture={architecture} />
             </Box>
-          </Paper>
+          </StyledPaper>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <StyledPaper>
+            <Grid container sx={{ margin: 1 }}>
+              <Grid item xs={12} md={6}>
+                <Table
+                  columns={[
+                    {
+                      field: "xn",
+                      headerName: "Xn",
+                      flex: 1.5,
+                    },
+                    {
+                      field: "fxn",
+                      headerName: "F(Xn)",
+                      flex: 1,
+                      sortable: false,
+                    },
+                  ]}
+                  rows={XValues}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Table
+                  columns={[
+                    {
+                      field: "yn",
+                      headerName: "Yn",
+                      flex: 1.5,
+                    },
+                    {
+                      field: "fyn",
+                      headerName: "F(Yn)",
+                      flex: 1,
+                      sortable: false,
+                    },
+                  ]}
+                  rows={YValues}
+                />
+              </Grid>
+            </Grid>
+          </StyledPaper>
         </Grid>
       </Grid>
     </Container>
@@ -130,6 +127,6 @@ const rows = [
     id: 2,
     xn: "Urgent Safety Recall",
     fxn: "06/04/2022",
-  }
+  },
 ];
 export default Function;

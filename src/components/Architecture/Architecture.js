@@ -20,7 +20,7 @@ const Architecture = ({ architecture, network }) => {
     <Container>
       <Box mt={5} sx={{ display: "flex", alignItems: "center" }}>
         <IconButton onClick={() => navigate(-1)}>
-          <ArrowBackIcon />
+          <ArrowBackIcon sx={{ color: "#fff" }} />
         </IconButton>
 
         <Typography variant="h5" mt={2} mb={2}>
