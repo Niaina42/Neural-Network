@@ -2,19 +2,14 @@ import React, { useEffect, useState } from "react";
 import Table from "../Common/Table/Table";
 import {
   Box,
-  Container,
   Grid,
-  Typography,
-  IconButton,
-  Paper,
 } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import Statistics from "./Statstics/Statistics";
 import StyledPaper from "../Common/StyledPaper/StyledPaper";
+import Layout from "../Common/Layout/Layout";
 
 const Function = ({ architecture }) => {
-  const navigate = useNavigate();
   const [XValues, setXValues] = useState([]);
   const [YValues, setYValues] = useState([]);
 
@@ -26,14 +21,14 @@ const Function = ({ architecture }) => {
           parsedValue.push({
             id: idx,
             yn: idx,
-            fyn: x.toFixed(6),
+            fyn: x.toFixed(7),
           });
           break;
         default:
           parsedValue.push({
             id: idx,
             xn: idx,
-            fxn: x.toFixed(6),
+            fxn: x.toFixed(7),
           });
           break;
       }
@@ -51,17 +46,7 @@ const Function = ({ architecture }) => {
   }, []);
 
   return (
-    <Container>
-      <Box mt={5} sx={{ display: "flex", alignItems: "center" }}>
-        <IconButton onClick={() => navigate(-1)}>
-          <ArrowBackIcon sx={{ color: "#fff" }} />
-        </IconButton>
-
-        <Typography variant="h5" mt={2} mb={2}>
-          Série de Hennon
-        </Typography>
-      </Box>
-
+    <Layout title={"Fonction d'itération"}>
       <Grid container mb={5}>
         <Grid item xs={12} md={6}>
           <StyledPaper>
@@ -113,7 +98,7 @@ const Function = ({ architecture }) => {
           </StyledPaper>
         </Grid>
       </Grid>
-    </Container>
+    </Layout>
   );
 };
 

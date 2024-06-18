@@ -1,17 +1,13 @@
 import {
-  Box,
-  Container,
   Grid,
-  IconButton,
-  Paper,
   Typography,
 } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Table from "../Common/Table/Table";
 import { LineChart } from "@mui/x-charts";
 import StyledPaper from "../Common/StyledPaper/StyledPaper";
+import Layout from "../Common/Layout/Layout";
 
 const chartStyle = {
   //change left yAxis label styles
@@ -53,7 +49,7 @@ const Training = ({ architecture, apprentissage }) => {
           poids.push({
             id: `W${firstIdx + 1}<${secondIdx + 1},${thirdIdx + 1}>`,
             w: `W${firstIdx + 1}<${secondIdx + 1},${thirdIdx + 1}>`,
-            val: thirdElement.toFixed(6),
+            val: thirdElement.toFixed(7),
           });
         });
       });
@@ -69,7 +65,7 @@ const Training = ({ architecture, apprentissage }) => {
       error.push({
         id: idx,
         epoch: idx + 1,
-        error: err.toFixed(6),
+        error: err.toFixed(7),
       });
     });
     setErrorNMSE(error);
@@ -81,17 +77,7 @@ const Training = ({ architecture, apprentissage }) => {
   }, []);
 
   return (
-    <Container mb={5}>
-      <Box mt={5} sx={{ display: "flex", alignItems: "center" }}>
-        <IconButton onClick={() => navigate(-1)}>
-          <ArrowBackIcon sx={{ color: "#fff" }} />
-        </IconButton>
-
-        <Typography variant="h5" mt={2} mb={2}>
-          Apprentissage du modèle
-        </Typography>
-      </Box>
-
+    <Layout title={"Apprentissage du modèle"}>
       <Grid container mb={2}>
         <Grid item xs={12} md={6}>
           <Table
@@ -156,7 +142,7 @@ const Training = ({ architecture, apprentissage }) => {
         ]}
         rows={errorNMSE}
       />
-    </Container>
+    </Layout>
   );
 };
 export default Training;

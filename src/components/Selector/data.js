@@ -36,7 +36,7 @@ export const data = [
     title: 'Prédiction un pas',
     color: 'warning.darker',
     value: 25,
-    slug: "/function"
+    slug: "/prediction"
   },
   {
     id: 1,

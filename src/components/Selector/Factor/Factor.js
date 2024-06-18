@@ -17,7 +17,7 @@ const Factor = ({ factor }) => {
   return (
     <Paper
       sx={{
-        background: "#120e21",
+        background: "#262331",
         border: "1px solid #fff",
         color: "#fff",
         transition: 'background-color 0.8s',
@@ -48,7 +48,7 @@ const Factor = ({ factor }) => {
               borderRadius: '50%'
             }}
           >
-            <Icon color={isHovered ? 'grey.100' :  'secondary.main' } />
+            <Icon color={isHovered ? 'grey.100' : 'secondary.main' } />
           </Stack>
           <Typography variant="h6">{title}</Typography>
         </Stack>

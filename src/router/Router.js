@@ -4,8 +4,9 @@ import Selector from "../components/Selector/Selector";
 import Function from "../components/Function/Function";
 import Architecture from "../components/Architecture/Architecture";
 import Training from "../components/Training/Training";
+import Prediction from "../components/Prediction/Prediction";
 
-const Router = ({ archLoading, architecture, network, apprentissage }) => {
+const Router = ({ archLoading, architecture, network, apprentissage, prediction }) => {
   return (
     <BrowserRouter>
       <Routes>
@@ -26,6 +27,16 @@ const Router = ({ archLoading, architecture, network, apprentissage }) => {
             <Training
               architecture={architecture}
               apprentissage={apprentissage}
+            />
+          }
+        />
+        <Route
+          path="/prediction"
+          element={
+            <Prediction
+              architecture={architecture}
+              apprentissage={apprentissage}
+              prediction={prediction}
             />
           }
         />

@@ -7,7 +7,7 @@ const StyledPaper = ({ children, style = {} }) => {
         display: "flex",
         justifyContent: "center",
         margin: 1,
-        background: "#120e21",
+        background: "#262331",
         border: "1px solid #fff",
         ...style
       }}

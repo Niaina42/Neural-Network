@@ -8,7 +8,7 @@ const ErrorTable = ({ valeurPropres = [], error = [] }) => {
     rows.push({
       id: idx,
       valpropre: val,
-      errapp: error[idx].toFixed(6),
+      errapp: error[idx].toFixed(7),
     });
   });
   return (

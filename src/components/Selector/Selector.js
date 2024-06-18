@@ -1,10 +1,29 @@
-import { Paper, Grid, Container, Typography, Box } from "@mui/material";
-import React, { useState } from "react";
+import { Grid, Container, Typography, Box } from "@mui/material";
+import React from "react";
 import Factor from "./Factor/Factor";
 import { data } from "./data";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Selector = ({ archLoading }) => {
-  return !archLoading ? (
+  return archLoading ? (
+    <>
+      <Box
+        mt={5}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          height: "50vh",
+        }}
+      >
+        <Typography mb={2} variant="h5" sx={{ textAlign: "center" }}>
+          Chargement des données...
+        </Typography>
+        <CircularProgress color="inherit" />
+      </Box>
+    </>
+  ) : (
     <>
       <Box mt={5}>
         <Typography variant="h4" sx={{ textAlign: "center" }}>
@@ -26,14 +45,6 @@ const Selector = ({ archLoading }) => {
           </Grid>
         </Grid>
       </Container>
-    </>
-  ) : (
-    <>
-      <Box mt={5}>
-        <Typography variant="h4" sx={{ textAlign: "center" }}>
-          Chargement...
-        </Typography>
-      </Box>
     </>
   );
 };
