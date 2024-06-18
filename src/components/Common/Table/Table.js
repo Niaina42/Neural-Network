@@ -29,6 +29,9 @@ const Table = ({ columns, rows = [], title = null }) => {
             "& .css-rtrcn9-MuiTablePagination-root":{
               color:"#fff"
             },
+            "& .MuiDataGrid-scrollbar": {
+              scrollbarWidth: "thin"
+            }
           }}
           apiRef={apiRef}
           columns={columns}

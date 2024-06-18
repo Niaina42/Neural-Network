@@ -5,10 +5,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0e0e0e;
+  background-color: #120e21;
   color: #fff;
 }
+/* For webkit-based browsers */ 
+::-webkit-scrollbar { 
+  width: 8px; /* Change the width to your desired value */ 
+  background-color: white;
+} 
+  
+/* For Firefox */ 
+::-moz-scrollbar { 
+  width: 8px; /* Change the width to your desired value */ 
+  background-color: white;
+} 
+::-webkit-scrollbar-thumb {
+  background: #b3b3b3; /* Change this color as needed */
+  border-radius: 6px; /* Adds rounded corners */
+}
 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a09f9f; /* Change this color as needed */
+}
+
+/* Horizontal scrollbar track */
+::-webkit-scrollbar-track-piece:start {
+  background: #f1f1f1; /* Change this color as needed */
+}
+
+/* Horizontal scrollbar thumb */
+::-webkit-scrollbar-thumb:horizontal {
+  background: #b3b3b3; /* Change this color as needed */
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

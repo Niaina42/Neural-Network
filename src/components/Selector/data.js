@@ -2,6 +2,7 @@ import Lightning from "./Icons/Lightning";
 import Range from "./Icons/Range";
 import Blood from "./Icons/Blood";
 import Tier from "./Icons/Tier";
+import ManyPredict from "./Icons/ManyPredict";
 
 export const data = [
   {
@@ -39,7 +40,7 @@ export const data = [
   },
   {
     id: 1,
-    icon: Lightning,
+    icon: ManyPredict,
     title: 'Prédiction plusieurs pas',
     color: 'primary.main',
     value: 45,

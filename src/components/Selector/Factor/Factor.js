@@ -37,20 +37,20 @@ const Factor = ({ factor }) => {
     >
       <Stack alignItems="center" rowGap={3.75} sx={{ py: 2.5, height: 1 }}>
         <Stack alignItems="center" rowGap={1.25}>
-          <Typography variant="h6">{title}</Typography>
           <Stack
             justifyContent="center"
             alignItems="center"
             className="iconWrapper"
             sx={{
-              height: 30,
-              width: 30,
+              height: 40,
+              width: 40,
               bgcolor: "#eeeeee",
               borderRadius: '50%'
             }}
           >
-            <Icon sx={[isHovered ? { color: 'grey.100' } : { color: factorColor }]} />
+            <Icon color={isHovered ? 'grey.100' :  'secondary.main' } />
           </Stack>
+          <Typography variant="h6">{title}</Typography>
         </Stack>
       </Stack>
     </Paper>
