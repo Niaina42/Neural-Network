@@ -27,7 +27,7 @@ const Selector = ({ archLoading }) => {
     <>
       <Box mt={5}>
         <Typography variant="h4" sx={{ textAlign: "center" }}>
-          Série de Henon
+          Série de Hénon
         </Typography>
       </Box>
       <Container sx={{ marginTop: "10%" }}>

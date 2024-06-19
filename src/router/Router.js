@@ -1,14 +1,14 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Selector from "../components/Selector/Selector";
 import Function from "../components/Function/Function";
 import Architecture from "../components/Architecture/Architecture";
 import Training from "../components/Training/Training";
 import Prediction from "../components/Prediction/Prediction";
 
-const Router = ({ archLoading, architecture, network, apprentissage, prediction }) => {
+const Routing = ({ archLoading, architecture, network, apprentissage, prediction }) => {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Selector archLoading={archLoading} />} />
         <Route
@@ -41,7 +41,7 @@ const Router = ({ archLoading, architecture, network, apprentissage, prediction 
           }
         />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 };
-export default Router;
+export default Routing;
