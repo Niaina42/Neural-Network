@@ -3,11 +3,13 @@ import Table from "../Common/Table/Table";
 import {
   Box,
   Grid,
+  Typography
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Statistics from "./Statstics/Statistics";
 import StyledPaper from "../Common/StyledPaper/StyledPaper";
 import Layout from "../Common/Layout/Layout";
+import StyledTitle from "../Common/StyledTitle/StyledTitle";
 
 const Function = ({ architecture }) => {
   const [XValues, setXValues] = useState([]);
@@ -49,6 +51,7 @@ const Function = ({ architecture }) => {
     <Layout title={"Fonction d'itération"}>
       <Grid container mb={5}>
         <Grid item xs={12} md={6}>
+          <StyledTitle title={"Représentation graphique de Yn en fontcion de Xn"} />
           <StyledPaper>
             <Box>
               <Statistics architecture={architecture} />
@@ -56,6 +59,7 @@ const Function = ({ architecture }) => {
           </StyledPaper>
         </Grid>
         <Grid item xs={12} md={6}>
+          <StyledTitle title={"Les 500 premières valuers de Xn et Yn"} />
           <StyledPaper>
             <Grid container sx={{ margin: 1 }}>
               <Grid item xs={12} md={6}>

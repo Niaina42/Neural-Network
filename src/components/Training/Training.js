@@ -8,6 +8,7 @@ import Table from "../Common/Table/Table";
 import { LineChart } from "@mui/x-charts";
 import StyledPaper from "../Common/StyledPaper/StyledPaper";
 import Layout from "../Common/Layout/Layout";
+import StyledTitle from "../Common/StyledTitle/StyledTitle";
 
 const chartStyle = {
   //change left yAxis label styles
@@ -80,8 +81,8 @@ const Training = ({ architecture, apprentissage }) => {
     <Layout title={"Apprentissage du modèle"}>
       <Grid container mb={2}>
         <Grid item xs={12} md={6}>
+          <StyledTitle title={"Valeur du poid après apprentissage"} />
           <Table
-            title={"Valeur du poid après apprentissage"}
             columns={[
               {
                 field: "w",
@@ -101,9 +102,7 @@ const Training = ({ architecture, apprentissage }) => {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <Typography color="white" pl={2} variant="body1" mt={2} mb={2}>
-            Erreur Quadratique NMSE
-          </Typography>
+          <StyledTitle title={"Erreur Quadratique NMSE"} mb={1} />
           <StyledPaper
             style={{
               flexDirection: "column",
@@ -123,8 +122,8 @@ const Training = ({ architecture, apprentissage }) => {
         </Grid>
       </Grid>
 
+      <StyledTitle title={"Valeur d'erreur NMSE"} mb={1} mt={4} />
       <Table
-        title={"Valeur d'erreur NMSE"}
         columns={[
           {
             field: "epoch",

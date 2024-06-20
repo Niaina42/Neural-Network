@@ -12,7 +12,7 @@ const ErrorTable = ({ valeurPropres = [], error = [] }) => {
     });
   });
   return (
-    <Box p={1}>
+    <Box>
       <Table
         columns={[
           {

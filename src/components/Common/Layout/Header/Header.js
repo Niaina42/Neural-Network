@@ -6,7 +6,7 @@ import FunctionsIcon from "@mui/icons-material/Functions";
 import AddchartIcon from "@mui/icons-material/Addchart";
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import HandymanIcon from '@mui/icons-material/Handyman';
-import ViewStreamIcon from '@mui/icons-material/ViewStream';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 
 const Header = () => {
   return (
@@ -20,7 +20,7 @@ const Header = () => {
           marginTop: 2
         }}
       >
-        <HeaderItem slug="/" icon={ViewStreamIcon} />
+        <HeaderItem slug="/" icon={WidgetsIcon} />
         <HeaderItem slug="/function" icon={FunctionsIcon} />
         <HeaderItem slug="/architecture" icon={HandymanIcon} />
         <HeaderItem slug="/training" icon={PsychologyIcon} />

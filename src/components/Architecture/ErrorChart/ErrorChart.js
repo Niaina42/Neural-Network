@@ -6,6 +6,7 @@ import StyledPaper from "../../Common/StyledPaper/StyledPaper";
 const ErrorChart = ({ valeurPropres }) => {
   return (
     <StyledPaper>
+      
       <LineChart
         sx={{
           "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel":{

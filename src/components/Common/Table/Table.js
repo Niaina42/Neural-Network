@@ -1,5 +1,21 @@
 import { Box, Button, Grid, Paper, Stack, Typography } from "@mui/material";
 import { DataGrid, useGridApiRef } from "@mui/x-data-grid";
+import { styled } from '@mui/material/styles';
+
+const StyledTable = styled(DataGrid)(({ theme }) => ({
+  color: "#FFF",
+  background: "#262331",
+  border: "1px solid #fff",
+  "& .MuiDataGrid-main .css-yrdy0g-MuiDataGrid-columnHeaderRow":{
+    background:"#262331"
+  },
+  "& .css-rtrcn9-MuiTablePagination-root":{
+    color:"#fff"
+  },
+  "& .MuiDataGrid-scrollbar": {
+    scrollbarWidth: "thin"
+  }
+}));
 
 const Table = ({ columns, rows = [], title = null }) => {
   const apiRef = useGridApiRef();
@@ -18,21 +34,7 @@ const Table = ({ columns, rows = [], title = null }) => {
           mt: 1.75,
         }}
       >
-        <DataGrid
-          sx={{
-            color: "#FFF",
-            background: "#120e21",
-            border: "1px solid #fff",
-            "& .MuiDataGrid-main .css-yrdy0g-MuiDataGrid-columnHeaderRow":{
-              background:"#120e21"
-            },
-            "& .css-rtrcn9-MuiTablePagination-root":{
-              color:"#fff"
-            },
-            "& .MuiDataGrid-scrollbar": {
-              scrollbarWidth: "thin"
-            }
-          }}
+        <StyledTable
           apiRef={apiRef}
           columns={columns}
           rows={rows}
