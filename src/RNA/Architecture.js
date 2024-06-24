@@ -12,7 +12,7 @@ class Architecture {
         this.error = tak.E;
         this.valpropre = tak.valpropre;
         let coucheEntree = parseInt(tak.coucheEntree);
-        let coucheCachee = 2;
+        let coucheCachee = 5;
         let coucheSortie = 1;
 
         return [coucheEntree, coucheCachee, coucheSortie];

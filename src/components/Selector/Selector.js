@@ -3,6 +3,7 @@ import React from "react";
 import Factor from "./Factor/Factor";
 import { data } from "./data";
 import CircularProgress from "@mui/material/CircularProgress";
+import ParticleBackground from "../Common/Layout/ParticleBackground/ParticleBackground";
 
 const Selector = ({ archLoading }) => {
   return archLoading ? (
@@ -25,8 +26,14 @@ const Selector = ({ archLoading }) => {
     </>
   ) : (
     <>
+      <ParticleBackground />
       <Box mt={5}>
         <Typography variant="h4" sx={{ textAlign: "center" }}>
+          Série de Hénon
+        </Typography>
+      </Box>
+      <Box mt={5}>
+        <Typography variant="body1" sx={{ textAlign: "center" }}>
           Série de Hénon
         </Typography>
       </Box>
