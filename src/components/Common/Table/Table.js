@@ -4,10 +4,10 @@ import { styled } from '@mui/material/styles';
 
 const StyledTable = styled(DataGrid)(({ theme }) => ({
   color: "#FFF",
-  background: "#262331",
+  backgroundColor: "#262331",
   border: "1px solid #fff",
   "& .MuiDataGrid-main .css-yrdy0g-MuiDataGrid-columnHeaderRow":{
-    background:"#262331"
+    backgroundColor:"#262331"
   },
   "& .css-rtrcn9-MuiTablePagination-root":{
     color:"#fff"

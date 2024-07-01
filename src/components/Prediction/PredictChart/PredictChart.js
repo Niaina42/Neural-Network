@@ -2,7 +2,7 @@ import { LineChart } from "@mui/x-charts";
 import React from "react";
 import StyledPaper from "../../Common/StyledPaper/StyledPaper";
 
-const ErrorChart = ({ valeurPropres }) => {
+const PredictChart = ({ expected, predicted }) => {
   return (
     <StyledPaper>
       <LineChart
@@ -25,16 +25,18 @@ const ErrorChart = ({ valeurPropres }) => {
            "& .MuiChartsAxis-bottom .MuiChartsAxis-tick":{
             stroke:"#FFFFFF"
            },
+           "& .MuiChartsLegend-series": {
+            color: "white"
+           }
         }}
         series={[
-          {
-            data: valeurPropres,
-          },
+          { label: "Valeur prédite", curve: "natural", data: predicted, color: "#f28e2c" },
+          { label: "Valeur attendue",curve: "natural", data: expected },
         ]}
-        width={550}
         height={500}
       />
     </StyledPaper>
   );
 };
-export default ErrorChart;
+
+export default PredictChart;

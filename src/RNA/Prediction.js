@@ -6,17 +6,17 @@ class Prediction {
         this.G = apprentissage.gradient;
     }
 
-    unPas(pas, debutP = 0) {
+    unPas(pas = 10, debutP = 0) {
         const architecture = new Architecture();
-        const X = architecture.genererValeur(pas + this.R[0] + debutP)[0];
-        const [pred, S] = this.G.predictionUnPas(X, pas, debutP);
+        const X = architecture.generateValues(pas + this.R[0] + debutP)[0];
+        const [pred, S] = this.G.prediction_unpas(X, pas, debutP);
         return [pred, X.slice(this.R[0] + debutP), S];
     }
 
     plusieursPas(pas, debutP = 0) {
         const architecture = new Architecture();
-        const X = architecture.genererValeur(pas + this.R[0] + debutP)[0];
-        const [pred, S] = this.G.predictionPlusieursPas(X, pas, debutP);
+        const X = architecture.generateValues(pas + this.R[0] + debutP)[0];
+        const [pred, S] = this.G.prediction_plusieurpas(X, pas, debutP);
         return [pred, X.slice(debutP + this.R[0]), S];
     }
 }
