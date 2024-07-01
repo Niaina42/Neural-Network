@@ -11,7 +11,11 @@ function App() {
       mode: "dark",
       secondary: {
         main: "#9c27b0", 
-      }
+      },
+      background: {
+        default: '#262331', 
+        paper: '#262331',   
+      },
     },
   });
   const [archLoading, setArchloading] = useState(true);
