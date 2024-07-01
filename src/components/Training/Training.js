@@ -1,7 +1,4 @@
-import {
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Table from "../Common/Table/Table";
@@ -38,12 +35,30 @@ const chartStyle = {
 const Training = ({ architecture, apprentissage }) => {
   const navigate = useNavigate();
   const [weightValue, setWeightValue] = useState([]);
+  const [initialWeightValue, setinitialWeightValue] = useState([]);
   const [errorNMSE, setErrorNMSE] = useState([]);
   const [errorLine, setErrorLine] = useState([]);
 
+  const applyInitialWeigth = () => {
+    const initialW = apprentissage.gradient.initialW;
+    let poids = [];
+    initialW.forEach((firstElement, firstIdx) => {
+      firstElement.forEach((secondElement, secondIdx) => {
+        secondElement.forEach((thirdElement, thirdIdx) => {
+          poids.push({
+            id: `W${firstIdx + 1}<${secondIdx + 1},${thirdIdx + 1}>`,
+            w: `W${firstIdx + 1}<${secondIdx + 1},${thirdIdx + 1}>`,
+            val: thirdElement.toFixed(7),
+          });
+        });
+      });
+    });
+    setinitialWeightValue(poids);
+  };
+
   const applyWeight = () => {
     const W = apprentissage.gradient.W;
-    const poids = [];
+    let poids = [];
     W.forEach((firstElement, firstIdx) => {
       firstElement.forEach((secondElement, secondIdx) => {
         secondElement.forEach((thirdElement, thirdIdx) => {
@@ -73,36 +88,84 @@ const Training = ({ architecture, apprentissage }) => {
   };
 
   useEffect(() => {
-    applyWeight();
-    applyNMSE();
+    Promise.all([applyWeight(), applyNMSE(), applyInitialWeigth()]);
   }, []);
 
   return (
     <Layout title={"Apprentissage du modèle"}>
       <Grid container mb={2}>
         <Grid item xs={12} md={6}>
+          <StyledTitle title={"Valeur du poid avant apprentissage"} />
+          <Box p={1}>
+            <Table
+              columns={[
+                {
+                  field: "w",
+                  headerName: "w",
+                  flex: 1.5,
+                  minWidth: 150,
+                },
+                {
+                  field: "val",
+                  headerName: "Valeur",
+                  flex: 1,
+                  minWidth: 200,
+                  sortable: false,
+                },
+              ]}
+              rows={initialWeightValue}
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
           <StyledTitle title={"Valeur du poid après apprentissage"} />
+          <Box p={1}>
+            <Table
+              columns={[
+                {
+                  field: "w",
+                  headerName: "w",
+                  flex: 1.5,
+                  minWidth: 150,
+                },
+                {
+                  field: "val",
+                  headerName: "Valeur",
+                  flex: 1,
+                  minWidth: 200,
+                  sortable: false,
+                },
+              ]}
+              rows={weightValue}
+            />
+          </Box>
+        </Grid>
+      </Grid>
+
+      <Grid container mb={2}>
+        <Grid item xs={12} md={6}>
+          <StyledTitle title={"Valeur d'erreur NMSE"} mt={4} />
           <Table
             columns={[
               {
-                field: "w",
-                headerName: "w",
+                field: "epoch",
+                headerName: "Epoch",
                 flex: 1.5,
                 minWidth: 150,
               },
               {
-                field: "val",
-                headerName: "Valeur",
+                field: "error",
+                headerName: "NMSE",
                 flex: 1,
                 minWidth: 200,
                 sortable: false,
               },
             ]}
-            rows={weightValue}
+            rows={errorNMSE}
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <StyledTitle title={"Erreur Quadratique NMSE"} mb={1} />
+          <StyledTitle title={"Erreur Quadratique NMSE"} mb={1} mt={4}  />
           <StyledPaper
             style={{
               flexDirection: "column",
@@ -121,26 +184,6 @@ const Training = ({ architecture, apprentissage }) => {
           </StyledPaper>
         </Grid>
       </Grid>
-
-      <StyledTitle title={"Valeur d'erreur NMSE"} mb={1} mt={4} />
-      <Table
-        columns={[
-          {
-            field: "epoch",
-            headerName: "Epoch",
-            flex: 1.5,
-            minWidth: 150,
-          },
-          {
-            field: "error",
-            headerName: "NMSE",
-            flex: 1,
-            minWidth: 200,
-            sortable: false,
-          },
-        ]}
-        rows={errorNMSE}
-      />
     </Layout>
   );
 };

@@ -3,6 +3,7 @@ import * as math from 'mathjs';
 class Gradient {
   constructor(R, N, prototype, X = []) {
     this.W = [];
+    this.initialW = [];
     this.M = R.length;
     this.R = R;
     this.N = N;
@@ -60,8 +61,11 @@ class Gradient {
           w.push(Array.from({ length: this.R[l - 1] }, () => Math.random()));
         }
         this.W.push(w);
+        this.initialW.push(w)
       }
-      this.W.unshift(this.W[0]); // Insert a copy at the beginning
+      // Insert a copy at the beginning
+      this.W.unshift(this.W[0]); 
+      this.initialW.unshift(this.initialW[0]);
     }
   }
 

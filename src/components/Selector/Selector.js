@@ -4,8 +4,17 @@ import Factor from "./Factor/Factor";
 import { data } from "./data";
 import CircularProgress from "@mui/material/CircularProgress";
 import ParticleBackground from "../Common/Layout/ParticleBackground/ParticleBackground";
+import { BlockMath } from "react-katex";
+import "katex/dist/katex.min.css";
+import PoweredBy from "../Common/PoweredBy/PoweredBy";
 
 const Selector = ({ archLoading }) => {
+  const henonEquations = `
+  \\begin{cases}
+      x_{n+1} = 1 - ax_n^2 + y_n \\\\
+      y_{n+1} = b x_n
+  \\end{cases}
+`;
   return archLoading ? (
     <>
       <Box
@@ -23,6 +32,7 @@ const Selector = ({ archLoading }) => {
         </Typography>
         <CircularProgress color="inherit" />
       </Box>
+      <PoweredBy />
     </>
   ) : (
     <>
@@ -34,10 +44,10 @@ const Selector = ({ archLoading }) => {
       </Box>
       <Box mt={5}>
         <Typography variant="body1" sx={{ textAlign: "center" }}>
-          Série de Hénon
+          <BlockMath math={henonEquations} />
         </Typography>
       </Box>
-      <Container sx={{ marginTop: "10%" }}>
+      <Container sx={{ marginTop: "5%" }}>
         <Grid container rowGap={3.75}>
           <Grid item xs={12}>
             <Grid container spacing={3.75}>
@@ -52,6 +62,7 @@ const Selector = ({ archLoading }) => {
           </Grid>
         </Grid>
       </Container>
+      <PoweredBy />
     </>
   );
 };
