@@ -1,4 +1,4 @@
-import { Box, Container, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import HeaderItem from "./HeaderItem/HeaderItem";
@@ -25,7 +25,7 @@ const Header = () => {
         <HeaderItem slug="/architecture" icon={HandymanIcon} />
         <HeaderItem slug="/training" icon={PsychologyIcon} />
         <HeaderItem slug="/prediction" icon={QueryStatsIcon} />
-        <HeaderItem slug="/function" icon={AddchartIcon} />
+        <HeaderItem slug="/multi-prediction" icon={AddchartIcon} />
       </Box>
     </>
   );

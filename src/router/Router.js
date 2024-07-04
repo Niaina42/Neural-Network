@@ -5,6 +5,7 @@ import Function from "../components/Function/Function";
 import Architecture from "../components/Architecture/Architecture";
 import Training from "../components/Training/Training";
 import Prediction from "../components/Prediction/Prediction";
+import MultiPrediction from "../components/MultiPrediction/MultiPrediction";
 
 const Routing = ({ archLoading, architecture, network, apprentissage, prediction }) => {
   return (
@@ -34,6 +35,16 @@ const Routing = ({ archLoading, architecture, network, apprentissage, prediction
           path="/prediction"
           element={
             <Prediction
+              architecture={architecture}
+              apprentissage={apprentissage}
+              prediction={prediction}
+            />
+          }
+        />
+        <Route
+          path="/multi-prediction"
+          element={
+            <MultiPrediction
               architecture={architecture}
               apprentissage={apprentissage}
               prediction={prediction}

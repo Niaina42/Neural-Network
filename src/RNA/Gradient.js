@@ -180,28 +180,32 @@ class Gradient {
     let ce = this.R[0];
     let S = [];
     let prediction = [];
+    // for (let i = 0; i < pas; i++) {
+    //   let prototype = prediction.slice(-ce).reverse(); 
+    //   if (debut + ce - i > 0) {
+    //     prediction.push(
+    //       this.prediction([
+    //         [...prototype, ...X.slice(debut, debut + ce - i)],
+    //       ])[0]
+    //     );
+    //     S.push([...prototype, ...X.slice(debut, debut + ce - i)]);
+    //   } else {
+    //     prediction.push(this.prediction([prototype])[0]);
+    //     S.push(prototype);
+    //   }
+    // }
     for (let i = 0; i < pas; i++) {
-      let prototype = prediction.slice(-ce).reverse(); 
-      if (debut + ce - i > 0) {
-        prediction.push(
-          this.prediction([
-            [...prototype, ...X.slice(debut, debut + ce - i)],
-          ])[0]
-        );
-        S.push([...prototype, ...X.slice(debut, debut + ce - i)]);
-      } else {
-        prediction.push(this.prediction([prototype])[0]);
-        S.push(prototype);
-      }
+      S.push(X.slice(i + debut, debut + ce + i));
     }
+    prediction = this.prediction(S);
     return [prediction, S];
   }
 
-  prediction_unpas(X, pas, debut) {
+  prediction_unpas(X, valPred, debut) {
     let ce = this.R[0];
     let S = [];
     let prediction = [];
-    for (let i = 0; i < pas; i++) {
+    for (let i = 0; i < valPred; i++) {
       S.push(X.slice(i + debut, debut + ce + i));
     }
     prediction = this.prediction(S);

@@ -44,6 +44,6 @@ export const data = [
     title: 'Prédiction plusieurs pas',
     color: 'primary.main',
     value: 45,
-    slug: "/function"
+    slug: "/multi-prediction"
   },
 ];
