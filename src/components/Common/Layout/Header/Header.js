@@ -7,6 +7,7 @@ import AddchartIcon from "@mui/icons-material/Addchart";
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import HandymanIcon from '@mui/icons-material/Handyman';
 import WidgetsIcon from '@mui/icons-material/Widgets';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 const Header = () => {
   return (
@@ -26,6 +27,7 @@ const Header = () => {
         <HeaderItem slug="/training" icon={PsychologyIcon} />
         <HeaderItem slug="/prediction" icon={QueryStatsIcon} />
         <HeaderItem slug="/multi-prediction" icon={AddchartIcon} />
+        <HeaderItem slug="/conclusion" icon={AssignmentIcon} />
       </Box>
     </>
   );

@@ -3,6 +3,7 @@ import Range from "./Icons/Range";
 import Blood from "./Icons/Blood";
 import Tier from "./Icons/Tier";
 import ManyPredict from "./Icons/ManyPredict";
+import Conclusion from "./Icons/Conclusion";
 
 export const data = [
   {
@@ -39,11 +40,19 @@ export const data = [
     slug: "/prediction"
   },
   {
-    id: 1,
+    id: 5,
     icon: ManyPredict,
     title: 'Prédiction plusieurs pas',
     color: 'primary.main',
     value: 45,
     slug: "/multi-prediction"
+  },
+  {
+    id: 6,
+    icon: Conclusion,
+    title: 'Remarque',
+    color: 'primary.main',
+    value: 45,
+    slug: "/conclusion"
   },
 ];

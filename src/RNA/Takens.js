@@ -16,9 +16,9 @@ class Takens {
         // let matrixTranspose = math.transpose(matrix);
         // let product = math.multiply(matrix, matrixTranspose);
         // Calculate the covariance matrix manually
-        // const centeredData = math.subtract(matrix, math.mean(matrix, 0)); // Center the data
-        // const covarianceMatrix = math.multiply(math.transpose(centeredData), centeredData); // Calculate the covariance matrix
-        this.teta = matrix
+        const centeredData = math.subtract(matrix, math.mean(matrix, 0)); // Center the data
+        const covarianceMatrix = math.multiply(math.transpose(centeredData), centeredData); // Calculate the covariance matrix
+        this.teta = covarianceMatrix
     }
 
     nbrCoucheEntree() {
